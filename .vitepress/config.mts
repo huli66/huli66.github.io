@@ -9,6 +9,7 @@ export default defineConfig({
   description: "HuJianjun blog", // 可以通过页面内的 frontmatter 覆盖
   appearance: true, // 默认值为 true，dark 为默认黑色主题
   lastUpdated: true, // 页脚显示最后更新时间
+  ignoreDeadLinks: true,
   head: [
     // 添加 icon，prefetch，字体等 head 标签
     ["link", { rel: "icon", href: "/head.svg", sizes: "16x16" }],
