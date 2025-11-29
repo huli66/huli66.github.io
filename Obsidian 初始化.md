@@ -4,6 +4,6 @@
 	- 代码字体 JetBrains Mono，JetBrains Mono NL
 - 插件
 	- Style Settings
-	- Git
+	- Git: 配置同步频率，等待同步选择源和分支，打开 source control
 	- Excalidraw
 - 词典
