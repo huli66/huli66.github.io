@@ -15,13 +15,19 @@
 
 ## 插入图片方案
 
-```md
-# c
-![[head.svg]]
+设置 obsidian 插入图片都放在 public 目录下，vitepress 也从这个目录读取图片
+并且插入图片时使用正确的 链接方式
 
-![](head.svg)
+```md
+# obsidian 中有两种插入图片方案
+![[head.svg]] # 连接本地图片，这种无法在 vitepress 中显示
+
+![](head.svg) # 连接外部或本地图片，这种可以在 vitepress 中显示
 ```
 
 
 ![[head.svg]]
 ![](head.svg)
+
+
+![[Pasted image 20251129153947.png]]
