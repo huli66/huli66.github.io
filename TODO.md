@@ -6,6 +6,7 @@
 	- 主题
 	- 同步
 	- 移动端
+	- 图片展示和同步
 - 抽空抹平部分 obsidian 和 vitepress 的展示差异
 	- obsidian 的 tag vitepress 不展示
 	- 可以考虑更换 vitepress markdown 引擎
