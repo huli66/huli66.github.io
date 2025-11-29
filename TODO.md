@@ -17,6 +17,7 @@
 
 设置 obsidian 插入图片都放在 public 目录下，vitepress 也从这个目录读取图片
 并且插入图片时使用正确的 链接方式
+TODO： 修改自动插入图片的语法为外部连接
 
 ```md
 # obsidian 中有两种插入图片方案
