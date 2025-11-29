@@ -83,9 +83,9 @@ function nav() {
     {
       text: "更多",
       items: [
-        { text: "个人简介", link: "/about/introduce" },
-        { text: "本站历史", link: "/about/siteHistory" },
-        { text: "生活记录", link: "/about/life" },
+        { text: "个人简介", link: "/README" },
+        { text: "本站历史", link: "/CHANGELOG" },
+        { text: "生活记录", link: "/TODO" },
         {
           text: "翻译",
           link: "/about",
@@ -102,8 +102,8 @@ function nav() {
 function sidebar() {
   return {
     "/随笔杂记": getDirctSidebar("随笔杂记"),
-    // "/WEB开发": getDirctSidebar("WEB开发"),
-    // "/开发者常识": getDirctSidebar("开发者常识"),
+    "/WEB开发": getDirctSidebar("WEB开发"),
+    "/开发者常识": getDirctSidebar("开发者常识"),
   };
 }
 
@@ -173,8 +173,8 @@ export default defineConfig({
     sidebar: sidebar(),
 
     socialLinks: [
-      { icon: "github", link: "https://github.com/vuejs/vitepress" },
-      { icon: "juejin", link: "https://github.com/vuejs/vitepress" },
+      { icon: "github", link: "https://github.com/huli66/huli66.github.io" },
+      // { icon: "juejin", link: "https://github.com/vuejs/vitepress" },
       {
         icon: {
           // svg: '<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Dribbble</title><path d="M12...6.38z"/></svg>',

@@ -1,6 +1,6 @@
 #vue/pinia #vue 
 
-```node
+```sh
 pnpm add pinia
 ```
 
