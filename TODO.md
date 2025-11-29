@@ -13,5 +13,15 @@
 	- vitepress markdown 代码样式
 	- markdown 内插入图片的同步，vitepress 放 publich目录下，obsidian可以设置指定目录
 
+## 插入图片方案
+
+```md
+# c
+![[head.svg]]
+
+![](head.svg)
+```
+
 
 ![[head.svg]]
+![](head.svg)
