@@ -1,4 +1,111 @@
 import { defineConfig } from "vitepress";
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+/**
+ * 根据目录返回目录下所有文章标题并排序
+ * @param pathname 目录地址
+ * @returns 目录下所有文章标题
+ */
+function getDirctSidebar(pathname: string) {
+  const p = path.resolve(__dirname, "../", pathname);
+  if (!fs.existsSync(p)) return [];
+  const dd: string[] = fs.readdirSync(p);
+
+  // 区分目录和文档，文档生成菜单子项，目录生产菜单子目录
+  const pages = dd
+    .filter((v) => v.endsWith(".md"))
+    .sort((a, b) => a.localeCompare(b))
+    .map((p) => {
+      const text = p.replace(".md", "");
+      return {
+        text,
+        link: `/${pathname}/${text}`,
+      };
+    });
+
+  const subMenus = dd
+    .filter((v) => !v.endsWith(".md"))
+    .filter((v) => {
+      // 判断是否是目录
+      const pp = path.resolve(__dirname, "../", pathname, v);
+      return fs.statSync(pp).isDirectory();
+    })
+    .sort((a, b) => a.localeCompare(b))
+    .map((d) => {
+      return {
+        text: d,
+        collapsed: true,
+        items: getDirctSidebar(`${pathname}/${d}`),
+      }
+    });
+
+  return [
+    ...subMenus,
+    ...pages,
+  ];
+}
+
+function nav() {
+  return [
+    {
+      text: "WEB开发",
+      link: "/WEB开发/",
+      // items: [
+      //   { text: "JS&H5&C3", link: "/web/protogenesis/index" },
+      //   { text: "React", link: "/web/react/index" },
+      //   { text: "Vue", link: "/web/vue/index" },
+      //   { text: "工程化", link: "/web/engineering/index" },
+      //   { text: "翻译", link: "/web/translate/index" },
+      // ],
+    },
+    {
+      text: "开发者常识",
+      link: "/开发者常识/",
+      // items: [
+      //   { text: "算法", link: "/developer/algorithms/index" },
+      //   { text: "设计模式", link: "/developer/designpattern/index" },
+      //   { text: "开发者技能", link: "/developer/others/index" },
+      // ],
+    },
+    {
+      text: "随笔杂记",
+      link: "/随笔杂记/",
+      // items: [
+      //   { text: "问题解决", link: "/blogs/problems/index" },
+      //   { text: "随手记录", link: "/blogs/notes/index" },
+      // ],
+    },
+    {
+      text: "更多",
+      items: [
+        { text: "个人简介", link: "/about/introduce" },
+        { text: "本站历史", link: "/about/siteHistory" },
+        { text: "生活记录", link: "/about/life" },
+        {
+          text: "翻译",
+          link: "/about",
+          // items: [
+          //   { text: "Study", link: "" },
+          //   { text: "NEXTJS", link: "" },
+          // ],
+        },
+      ],
+    },
+  ];
+}
+
+function sidebar() {
+  return {
+    "/随笔杂记": getDirctSidebar("随笔杂记"),
+    // "/WEB开发": getDirctSidebar("WEB开发"),
+    // "/开发者常识": getDirctSidebar("开发者常识"),
+  };
+}
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -61,20 +168,9 @@ export default defineConfig({
       light: "/head.svg",
     },
     // i18nRouting: true,
-    nav: [
-      { text: "Home", link: "/" },
-      { text: "Examples", link: "/markdown-examples" },
-    ],
+    nav: nav(),
 
-    sidebar: [
-      {
-        text: "Examples",
-        items: [
-          { text: "Markdown Examples", link: "/markdown-examples" },
-          { text: "Runtime API Examples", link: "/api-examples" },
-        ],
-      },
-    ],
+    sidebar: sidebar(),
 
     socialLinks: [
       { icon: "github", link: "https://github.com/vuejs/vitepress" },
@@ -82,8 +178,9 @@ export default defineConfig({
       {
         icon: {
           // svg: '<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Dribbble</title><path d="M12...6.38z"/></svg>',
-          svg: `<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 24 24"><path fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.756 16.358a1.09 1.09 0 0 0 1.154 1.198a16.576 16.576 0 0 1 3.54.338c1.635.2 3.197.794 4.552 1.731V6.448A10.16 10.16 0 0 0 7.45 4.694a16.597 16.597 0 0 0-3.605-.316a1.09 1.09 0 0 0-1.09 1.09zm18.492 0a1.089 1.089 0 0 1-1.154 1.154a16.576 16.576 0 0 0-3.54.338a10.16 10.16 0 0 0-4.552 1.775V6.448a10.16 10.16 0 0 1 4.552-1.754a16.597 16.597 0 0 1 3.605-.316a1.089 1.089 0 0 1 1.089 1.155zM5.621 8.234h1.252m-1.252 6.011h1.834M5.78 11.24h3.35"/></svg>`,
+          svg: `<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512"><path fill="currentColor" d="M224 24c0-13.3 10.7-24 24-24c145.8 0 264 118.2 264 264c0 13.3-10.7 24-24 24s-24-10.7-24-24c0-119.3-96.7-216-216-216c-13.3 0-24-10.7-24-24M80 96c26.5 0 48 21.5 48 48v224c0 26.5 21.5 48 48 48s48-21.5 48-48s-21.5-48-48-48c-8.8 0-16-7.2-16-16v-64c0-8.8 7.2-16 16-16c79.5 0 144 64.5 144 144s-64.5 144-144 144S32 447.5 32 368V144c0-26.5 21.5-48 48-48m168 0c92.8 0 168 75.2 168 168c0 13.3-10.7 24-24 24s-24-10.7-24-24c0-66.3-53.7-120-120-120c-13.3 0-24-10.7-24-24s10.7-24 24-24"/></svg>`,
         },
+        // icon: "blog",
         link: "https://huli66.com",
         ariaLabel: "main page",
       },
