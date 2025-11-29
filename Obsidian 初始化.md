@@ -1,0 +1,9 @@
+- 主题
+	- Blue Topaz 配合 Style Settings 插件自定义
+	- 正文字体 JetBrains Mono，Maple Mono
+	- 代码字体 JetBrains Mono，JetBrains Mono NL
+- 插件
+	- Style Settings
+	- Git
+	- Excalidraw
+- 词典
