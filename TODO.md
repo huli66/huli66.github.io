@@ -10,3 +10,8 @@
 - 抽空抹平部分 obsidian 和 vitepress 的展示差异
 	- obsidian 的 tag vitepress 不展示
 	- 可以考虑更换 vitepress markdown 引擎
+	- vitepress markdown 代码样式
+	- markdown 内插入图片的同步，vitepress 放 publich目录下，obsidian可以设置指定目录
+
+
+![[head.svg]]
