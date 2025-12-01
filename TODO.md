@@ -27,8 +27,6 @@ TODO： 修改自动插入图片的语法为外部连接
 ```
 
 
-![[head.svg]]
-![](head.svg)
+![](Pasted%20image%2020251201091253.png)
 
-
-![[Pasted image 20251129153947.png]]
+[
