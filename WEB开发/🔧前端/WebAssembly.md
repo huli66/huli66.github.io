@@ -198,6 +198,17 @@ console 出现乱码
 
 | 打包工具     | --target web | --target bundler |
 | -------- | ------------ | ---------------- |
-| vite     |              | vite-p           |
+| vite     |              | vite-plugin-wasm |
 | webpack5 |              |                  |
 | webpack4 |              |                  |
+
+- vite项目
+```js
+import wasm from 'vite-plugin-wasm';
+
+export default defineConfig({
+	plugins: [
+		wasm()
+	]
+})
+```
