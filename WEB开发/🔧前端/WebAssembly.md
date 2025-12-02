@@ -173,8 +173,13 @@ webpack4
 异步加载，如果 wasm 文件体积较大，不会阻塞主线程，放在静态文件目录中，可以开启 gzip 压缩减小加载体积
 不需要构建工具支持，如果是老项目使用 webpack3 这种，或者不想找版本合适的 `loader` `plugin` 等，可以使用这种方式，只需要在生产环境的 `nginx` 上配置 MIME 类型（新的 nginx 配置默认支持）
 
-```sh
+```nginx
+# mime.types
+types {
+	application/wasm           wasm;
+}
 
+# 或者指定某个
 ```
 
 可能遇到的问题：
