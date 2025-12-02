@@ -166,7 +166,7 @@ webpack5
 
 webpack4
 
-如果作为工具包使用，体积不大，推荐 bundler 方式，发布到 npm，
+如果作为工具包使用，体积不大，推荐 bundler 方式，发布到 npm，前端使用一般加个 loader 或者 plugin 比较方便，不一定有权限配置 `nginx`(卑微)
 
 ### web
 优点
