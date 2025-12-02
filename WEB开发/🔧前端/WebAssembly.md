@@ -125,3 +125,21 @@ webpack 是否可以配置 loader 来将二进制文件打包到一起
 
 - wasm-bindgen：rust/js底层互操作库和cli工具，实现 rust/js 类型转换，生成绑定代码
 - wasm-pack：基于wasm-pack的高级构建工具链，集成了 wasm-opt等优化文件大小的工具，自动化了构建、优化、打包发布到npm的完整流程
+
+## wasm-pack
+
+`wasm-pack` 集成了打包、发布、测试、优化体积等功能，用于构建 wasm 包
+
+```sh
+cargo -V
+rustup update standable
+cargo install wasm-pack
+cargo install --list
+
+wasm-pack new wasm-tools
+
+wasm-pack build --scope huli66 --target bundler
+wasm-pack build --scope huli66 --target web
+```
+
+两种打包 target 的qu'b
