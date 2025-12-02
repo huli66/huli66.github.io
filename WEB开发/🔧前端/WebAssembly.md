@@ -140,6 +140,22 @@ wasm-pack new wasm-tools
 
 wasm-pack build --scope huli66 --target bundler
 wasm-pack build --scope huli66 --target web
+wasm-pack publish
 ```
 
-两种打包 target 的qu'b
+`--scope huli66` 使用自己的 `npm` 用户名作为域，生成的 `pkg` 下面的 `package.json` 的 `name` 也会带上 `@huli66` 前缀
+
+ 
+两种打包 target 的区别
+
+| 特性         | bundler          | web          |
+| ---------- | ---------------- | ------------ |
+| 构建目标       | --target bundler | --target web |
+| 加载方式       | 同步/内联            | 异步/fetch     |
+| 需要 init()  | 不需要              | 需要           |
+| 需要 MIME 配置 | 不需要              | 需要           |
+| 构建工具支持     | 需要               | 不需要          |
+
+### bundler
+
+### web
