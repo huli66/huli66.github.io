@@ -174,12 +174,15 @@ webpack4
 不需要构建工具支持，如果是老项目使用 webpack3 这种，或者不想找版本合适的 `loader` `plugin` 等，可以使用这种方式，只需要在生产环境的 `nginx` 上配置 MIME 类型（新的 nginx 配置默认支持）
 
 ```nginx
-# mime.types
+# mime.types，所有后缀为 .wasm 的文件都会自动带上返回头 Content-Type: application/wasm
 types {
 	application/wasm           wasm;
 }
 
-# 或者指定某个
+# 或者 default.conf 手动指定某个目录下的文件带上指定返回头
+location /static/wasm {
+	
+}
 ```
 
 可能遇到的问题：
