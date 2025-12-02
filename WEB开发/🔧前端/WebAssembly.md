@@ -159,3 +159,11 @@ wasm-pack publish
 ### bundler
 
 ### web
+这个方式的优点是，不需要构建工具支持，如果是老项目使用 webpack3 这种，或者不想找版本合适的 `loader` `plugin` 等，可以使用这种方式，只需要在生产环境的 `nginx` 上配置 MIME 类型
+
+```sh
+
+```
+
+可能遇到的问题：
+直接调用 `init()` 出现报错
