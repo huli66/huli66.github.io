@@ -167,3 +167,7 @@ wasm-pack publish
 
 可能遇到的问题：
 直接调用 `init()` 出现报错
+	webpack4 不支持 import meta，可以在包中找到相关代码，删掉，或者尝试手动引入 `.wasm` 文件然后进行使用
+console 出现乱码
+	开发环境没有配置 `application/wasm`
+	
