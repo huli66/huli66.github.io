@@ -201,11 +201,11 @@ CompileError: WebAssembly.instantiate(): expected magic word 00 61 73 6d, found 
 
 ### 所有情况
 
-| 打包工具     | --target web      | --target bundler |
-| -------- | ----------------- | ---------------- |
-| vite     | 开发环境，生产环境 nginx p | vite-plugin-wasm |
-| webpack5 |                   |                  |
-| webpack4 |                   |                  |
+| 打包工具     | --target web                                  | --target bundler |
+| -------- | --------------------------------------------- | ---------------- |
+| vite     | 开发环境，生产环境 nginx 配置 MIME，可以考虑把 wasm 文件放在静态服务器上 | vite-plugin-wasm |
+| webpack5 |                                               |                  |
+| webpack4 |                                               |                  |
 
 - vite项目
 ```js
