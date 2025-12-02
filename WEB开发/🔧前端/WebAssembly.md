@@ -157,9 +157,21 @@ wasm-pack publish
 | 构建工具支持     | 需要               | 不需要          |
 
 ### bundler
+优点
+内联到代码中，不需要配置 MIME，新版本打包工具支持都比较成熟
+
+vite vite-plugin-wasm
+
+webpack5
+
+webpack4
+
+如果作为工具包使用，体积不大，推荐 bundler 方式，发布到 npm，
 
 ### web
-这个方式的优点是，不需要构建工具支持，如果是老项目使用 webpack3 这种，或者不想找版本合适的 `loader` `plugin` 等，可以使用这种方式，只需要在生产环境的 `nginx` 上配置 MIME 类型
+优点
+异步加载，如果 wasm 文件体积较大，不会阻塞主线程，放在静态文件目录中，可以开启 gzip 压缩减小加载体积
+不需要构建工具支持，如果是老项目使用 webpack3 这种，或者不想找版本合适的 `loader` `plugin` 等，可以使用这种方式，只需要在生产环境的 `nginx` 上配置 MIME 类型（新的 nginx 配置默认支持）
 
 ```sh
 
@@ -170,4 +182,6 @@ wasm-pack publish
 	webpack4 不支持 import meta，可以在包中找到相关代码，删掉，或者尝试手动引入 `.wasm` 文件然后进行使用
 console 出现乱码
 	开发环境没有配置 `application/wasm`
-	
+	vite 中配置
+	webpack5 配置
+	webpack4 配置
