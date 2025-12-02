@@ -196,8 +196,8 @@ console 出现乱码
 
 ### 所有情况
 
-| 打包工具     | --target bundler | --target web |
-| -------- | ---------------- | ------------ |
-| vite     |                  |              |
-| webpack5 |                  |              |
-| webpack4 |                  |              |
+| 打包工具     | --target web | --target bundler |
+| -------- | ------------ | ---------------- |
+| vite     |              |                  |
+| webpack5 |              |                  |
+| webpack4 |              |                  |
