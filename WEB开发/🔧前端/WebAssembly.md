@@ -226,8 +226,21 @@ export default defineConfig({
 {
 	"experiments": {
 		asyncWebAssembly: true,
-		
+		syncWebAssembly: true
 	}
 }
 ```
+```js
+import {calculate_statistics as calc2} from '@huli66/test-wasm-bundler';
+import init, {calculate_statistics} from '@huli66/test-wasm-web'
+
+init().then(() => {
+	const numbers = [1, 2, 3, 4, 5];
+	const result = calculate_statistics(numbers);
+	console.log(result, result.mean, result.median, result.standard_deviation);
+});
+
+const res2 = calc2([6, 7, 8, 9, 10]);
+```
 - webpack4 项目
+推荐使用 web 包，远程引入
