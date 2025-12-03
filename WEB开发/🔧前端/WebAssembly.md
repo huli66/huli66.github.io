@@ -160,12 +160,6 @@ wasm-pack publish
 优点
 内联到代码中，不需要配置 MIME，新版本打包工具支持都比较成熟
 
-vite vite-plugin-wasm
-
-webpack5
-
-webpack4
-
 如果作为工具包使用，体积不大，推荐 bundler 方式，发布到 npm，前端使用一般加个 loader 或者 plugin 比较方便，不一定有权限配置 `nginx`(卑微)
 
 ### web
@@ -207,10 +201,13 @@ CompileError: WebAssembly.instantiate(): expected magic word 00 61 73 6d, found 
 | webpack5 | experiments: {<br>asyncWebAssembly: true,<br>syncWebAssembly: true<br>}, | experiments: {<br>asyncWebAssembly: true,<br>syncWebAssembly: true<br>}, |
 | webpack4 | 配置 MIME                                                                  | 不推荐，loader 已废弃                                                           |
 
+可以使用 `@huli66/test-wasm-web` `@huli66/test-wasm-bundler` 两个包在自己的项目中尝试一下，代码如下
+
 - vite项目
 使用 web 包需要开发环境和生产环境都配置 MIME，可以考虑把 wasm 文件放在静态服务器上，远程拉取进行 init
 bundler 包使用
 ```js
+// vite.config.js
 import wasm from 'vite-plugin-wasm';
 
 export default defineConfig({
@@ -230,6 +227,7 @@ export default defineConfig({
 	}
 }
 ```
+使用功能
 ```js
 import {calculate_statistics as calc2} from '@huli66/test-wasm-bundler';
 import init, {calculate_statistics} from '@huli66/test-wasm-web'
