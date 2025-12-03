@@ -201,11 +201,11 @@ CompileError: WebAssembly.instantiate(): expected magic word 00 61 73 6d, found 
 
 ### 所有情况
 
-| 打包工具     | --target web | --target bundler |
-| -------- | ------------ | ---------------- |
-| vite     | 配置 MIME      | vite-plugin-wasm |
-| webpack5 |              |                  |
-| webpack4 |              |                  |
+| 打包工具     | --target web                                                             | --target bundler                                                         |
+| -------- | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
+| vite     | 配置 MIME                                                                  | vite-plugin-wasm                                                         |
+| webpack5 | experiments: {<br>asyncWebAssembly: true,<br>syncWebAssembly: true<br>}, | experiments: {<br>asyncWebAssembly: true,<br>syncWebAssembly: true<br>}, |
+| webpack4 | 配置 MIME                                                                  | 不推荐，loader 已废弃                                                           |
 
 - vite项目
 使用 web 包需要开发环境和生产环境都配置 MIME，可以考虑把 wasm 文件放在静态服务器上，远程拉取进行 init
@@ -219,3 +219,15 @@ export default defineConfig({
 	]
 })
 ```
+
+- webpack5 项目
+最简单，配置之后两种方式都能很简单运行
+```json
+{
+	"experiments": {
+		asyncWebAssembly: true,
+		
+	}
+}
+```
+- webpack4 项目
