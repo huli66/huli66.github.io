@@ -10,5 +10,5 @@
 	- 摄像头
 	- 截图
 - 发布&签名
-	- mac
-- windows
+	- mac 
+	- windows
