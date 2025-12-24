@@ -43,4 +43,8 @@ canvas 只支持两种图形的绘制：矩形和路径（由一系列点连成�
 
 `moveTo(x, y)` 将笔触移动到指定坐标，通常在 canvas 初始化或者 beginPath 后设置起点，也可以用来绘制不连续路径
 
-`lineTo(x, y)`
+`lineTo(x, y)` 绘制一条从当前点到指定点的直线
+
+`arc(x, y, radius, startAngle, endAngle, anticlockwise)` 以 (x,y) 为圆心，radius 为半径，从起始弧度到结束弧度，顺时针画圆弧（false 则逆时针）
+
+*弧度=(Math.PI / 180) * 角度，所以半圆位置为 Math.PI*
