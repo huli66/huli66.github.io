@@ -45,6 +45,8 @@ canvas 只支持两种图形的绘制：矩形和路径（由一系列点连成�
 
 `lineTo(x, y)` 绘制一条从当前点到指定点的直线
 
-`arc(x, y, radius, startAngle, endAngle, anticlockwise)` 以 (x,y) 为圆心，radius 为半径，从起始弧度到结束弧度，顺时针画圆弧（false 则逆时针）
+`arc(x, y, radius, startAngle, endAngle, anticlockwise)` 以 (x, y) 为圆心，radius 为半径，从起始弧度到结束弧度，顺时针画圆弧（ 默认是 false，顺时针，true 则逆时针）
 
-*弧度=(Math.PI / 180) * 角度，所以半圆位置为 Math.PI*
+*`弧度=(Math.PI / 180) * 角度`，所以半圆位置为 `Math.PI`，画整个圆为 `Math.PI*2`，虽然 和 0 位置一样，但是不能是 0*
+
+弧度 0 是圆心右侧距离为 radius 的位置，弧度计算是顺时针计算角度
