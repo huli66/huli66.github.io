@@ -75,3 +75,10 @@ var p = new Path2D("M10 10 h 80 v 80 h -80 Z");
 ctx.fill(p) // 根据路径填充
 ctx.stroke(p) // canvas 根据路径画图
 ```
+
+使用 `Path2D()` 或者手动封装图形绘制函数，都可以复用路径逻辑，但是各有优劣，`Path2D()` 需要额外的对象存储空间，并且部分旧浏览器不支持，手动封装则每次都需要重新执行，把结果当成路径，不能一次执行无限复用
+
+## 样式和色彩
+
+`ctx.fillStyle = color` 设置填充颜色
+`ctx.strokeStyle = color` 设置轮廓颜色
