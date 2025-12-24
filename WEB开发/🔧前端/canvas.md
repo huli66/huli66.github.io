@@ -20,3 +20,5 @@ canvas 只有 `width` `height` 两个属性，默认宽度是 300px，高度是 
 
 *canvas 提供了一个 `getContext` 方法，可以获取 canvas 的多种上下文，`2d` `bitmaprenderer` `webgl` `webgl2` ，目前使用最常用的 `2d`，也可以用 `if (canvas.getContext)` 来简单测试浏览器是否支持 canvas*
 
+canvas 只支持两种图形的绘制：ju'x
+
