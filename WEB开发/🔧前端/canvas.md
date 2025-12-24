@@ -27,6 +27,7 @@ canvas 只支持两种图形的绘制：矩形和路径（由一系列点连成�
 **路径和子路径都是闭合的（可以调用 closePath 闭合，也可以自动闭合）**
 
 	矩形绘制
+	react(x, y, width, height) 矩形
 	fillRect(x, y, widht, height) 填充矩形
 	strokeRect(x, y, width, height) 矩形边框
 	clearRect(x, y, widht, height) 清除指定矩形区域，清除部分完全透明
@@ -56,3 +57,14 @@ canvas 只支持两种图形的绘制：矩形和路径（由一系列点连成�
 `quadraticCurveTo(cpx, cpy, x, y)` 二次贝塞尔曲线，控制点为 (cpx, cpy)，起始点为当前点，结束点为 (x, y)
 
 `bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y)` 三次贝塞尔曲线，和二次贝塞尔曲线类似，但是有两个控制点，一般曲线不会超过控制点位置
+
+### path2D()
+
+`Path2D()` 会返回一个新初始化的 `Path2D`对象（可能将某个路径或者包含 SVG path 数据的字符串作为变量创建要给副本）
+
+```js
+var p = new Path2D("M10 10 h 80 v 80 h -80 Z");
+/*
+	* 
+*/
+```
