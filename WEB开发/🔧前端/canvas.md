@@ -86,4 +86,5 @@ ctx.stroke(p) // canvas 根据路径画图
 `ctx.globalAlpha = 0.5` 设置图形透明度
 
 `lineWidth = 10` 
-`lineCap = '`
+`lineCap = 'butt' | 'round' | 'square'` 端点样式，默认 butt 没有，round 多出半径为线宽一半的半圆，square 多出等宽且高度为线宽一半的方块，半个正方形，都是比真实长度多，
+`lineJoin = 'round' | 'bevel' | 'miter'` 两线相交出效果，分别有 磨圆，切平，尖角
