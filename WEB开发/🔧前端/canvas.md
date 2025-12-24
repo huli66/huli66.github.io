@@ -28,3 +28,11 @@ canvas 只支持两种图形的绘制：矩形和路径（由一系列点连成�
 	fillRect(x, y, widht, height) 填充矩形
 	strokeRect(x, y, width, height) 矩形边框
 	clearRect(x, y, widht, height) 清除指定矩形区域，清除部分完全透明
+
+	绘制路径
+	beginPath() 新建路径，图形绘制命令被指向到了路径上来生成路径
+	closePath() 闭合路径，图形绘制命令又会重新指向上下文
+	storke() 通过线条来绘制图形的轮廓
+	fill() 通过填充路径的内容区域生成实心的图形
+
+调用
