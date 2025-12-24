@@ -41,6 +41,6 @@ canvas 只支持两种图形的绘制：矩形和路径（由一系列点连成�
 
 调用 `fill()` 时，所有没有闭合的形状都自动闭合，不需要调用 closePath，但是 `stroke()` 不会这样
 
-`moveTo(x, y)` 将笔触移动到指定坐标，通常在 canvas 初始化或者 beginPath 后设置起点，也可以用来hui
+`moveTo(x, y)` 将笔触移动到指定坐标，通常在 canvas 初始化或者 beginPath 后设置起点，也可以用来绘制不连续路径
 
 `lineTo(x, y)`
