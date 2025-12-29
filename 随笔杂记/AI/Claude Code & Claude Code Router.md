@@ -6,7 +6,14 @@ npm install -g @musistudio/claude-code-router
 ```
 
 ## Claude Code
-/compact
+/compact 压缩
+/memory 记忆，CLAUDE.md
+
+claude -c 继续上次的对话
+
+claude -r 所有历史对话
+
+/resume 历史对话
 
 think
 think hard
