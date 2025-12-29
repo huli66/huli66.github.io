@@ -35,3 +35,18 @@ ccr ui
 # read and edit config in terminal
 ccr model
 ```
+
+
+## MCP
+
+```sh
+# context7 读取文档 ref 也行
+claude mcp add --transport http context7 https://mcp.context7.com/mcp
+
+# figma 读取设计稿
+
+
+# chrome-devtools-mcp 操作浏览器
+claude mcp add chrome-devtools npx chrome-devtools-mcp@latest --scope user
+
+```
