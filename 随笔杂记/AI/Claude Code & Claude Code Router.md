@@ -6,7 +6,12 @@ npm install -g @musistudio/claude-code-router
 ```
 
 ## Claude Code
+/compact
 
+think
+think hard
+think harder
+ultra think
 
 ## Claude Code Router
 
