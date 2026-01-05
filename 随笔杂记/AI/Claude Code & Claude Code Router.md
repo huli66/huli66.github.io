@@ -39,14 +39,18 @@ ccr model
 
 ## MCP
 
+[推荐的 mcp 工具](https://www.youtube.com/watch?v=UW5iQGE3264)
+
 ```sh
 # context7 读取文档 ref 也行
 claude mcp add --transport http context7 https://mcp.context7.com/mcp
 
 # figma 读取设计稿
-
+claude mcp add figma npx figma-developer-mcp
 
 # chrome-devtools-mcp 操作浏览器
 claude mcp add chrome-devtools npx chrome-devtools-mcp@latest --scope user
+
+# shadcn mcp
 
 ```
