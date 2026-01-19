@@ -2,7 +2,9 @@
 - 解引用再访问字段需要用括号，比较麻烦，所以go 语法允许直接写 q.X 无需显示解引用
 - 结构体允许只声明部分字段，未声明的字段会自动赋值为零值
 - 数组固定大小，切片是动态数组 slices
-- 
+- 切片不会单独存储数据，只是描述底层数据的一部分，更改一个切片的元素，会改变其底层数组的元素，其他切片也能看到
+- 同一个目录下的文件必须属于同一个包，同一个包的不同文件可以共享类型与函数
+- 值接收器，调用时传递值创建副本，指针接收器，不创建副本，传递指针
 
 ```go
 package main
@@ -35,6 +37,7 @@ func main1() {
 	)
 
 	// 为什么这里&v1输出的不是一段地址
+	// 因为 fmt.Println 打印会自动解引用，要打印地址需要使用 fmt.Printf p%
 	fmt.Println(v1, v2, v3, s, &v1)
 	fmt.Printf("v1 is of type %T\n, address is %p\n", v1, &v1)
 
@@ -90,5 +93,81 @@ func main1() {
 	// elem, ok := m[key] 获取 元素值和key 是否存在，如果 key 不存在，则读取的值是零值
 
 	// map，qiep，函数，都传递头，不传递底层数据
+}
+```
+
+```go
+package main
+import (
+"fmt"
+"math"
+)
+
+type Vertex1 struct {
+X, Y float64
+}
+
+func (v Vertex1) Abs() float64 {
+
+return math.Sqrt(v.X*v.X + v.Y*v.Y)
+
+}
+
+  
+
+func (v Vertex) Scale2(f int) int {
+
+v.X = v.X * f
+
+v.Y = v.Y * f
+
+return v.X
+
+}
+
+  
+
+// 方法在类型外部，通过接收器绑定
+
+// 类似于 Vertex1.prototype.Scale = function(f) {}
+
+// 只是 js 中显示绑定，go 中编译器内部自动处理绑定
+
+// 接收器变量名则类似 this，指向调用的该方法的实例
+
+// 使用指针接收器（*Vertex1）才能修改原值，否则（Vertex1）只会修改一个副本的值
+
+// js this 在运行时确定，go 的接收器变量类型在编译时确定
+
+// 值接收器，调用时传递值创建副本，指针接收器，不创建副本，传递指针
+
+func (x *Vertex1) Scale(f float64) float64 {
+
+x.X = x.X * f
+
+x.Y = x.Y * f
+
+return x.X
+
+}
+
+  
+
+// 同一个目录下的文件必须属于同一个包，同一个包的不同文件可以共享类型与函数
+
+  
+
+// 调用具有指针接收器的函数时，如果实参是值类型，会自动取地址传递给函数
+
+// 如果实参是指针类型，会自动解引用传递给函数
+
+  
+
+func main() {
+
+v := Vertex1{3, 4}
+
+fmt.Println(v.Abs(), v.Scale(10), v.X)
+
 }
 ```
