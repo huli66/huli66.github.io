@@ -29,7 +29,8 @@
 - `sync.Mutex` 锁，`Lock` 获取锁，如果锁已经被占用，当前 Goroutine 会阻塞等待，`Unlock` 释放锁，让其他等待的 Goroutine 可以继续获取锁
 	- **互斥性** 同一时刻，只有一个 goroutime 能持有锁
 	- **阻塞性** 如果锁被占用，`Lock()` 会阻塞当前 Goroutine，直到锁被释放继续执行
-	- **临界区** 
+	- **临界区** `Lock()` `Unlock()` 之间的代码叫做临界区，只有持有锁的 Goroutine 可以执行临界区代码
+	- **使用 defer 解锁** 确保即使函数提前返回或者发生 panic 锁也会被释放
 
 ```go
 package main
