@@ -23,6 +23,9 @@
  - `t, ok := i.(T)` 如果存在则 t 保存底层值，ok 为 true，否则 t 为断言类型的零值，ok 为 false
 
 - goruntime 是由 Go 运行时管理的轻量级线程，主进程执行完时会立即退出，所有 goruntime 也会关闭
+- channel 发送和接收数据都是阻塞的，缓冲 channel 则满了发送阻塞，空了接收阻塞
+- `for i := range c` 反复读取 channel 的数据，直到 channel 关闭
+- 
 
 ```go
 package main
