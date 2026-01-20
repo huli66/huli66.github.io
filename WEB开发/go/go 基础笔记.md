@@ -22,6 +22,8 @@
  - 类型断言，`t := i.(T)` 断言接口值 i 包含类型 T，如果没有则 panic 恐慌报错
  - `t, ok := i.(T)` 如果存在则 t 保存底层值，ok 为 true，否则 t 为断言类型的零值，ok 为 false
 
+- go
+
 ```go
 package main
 
