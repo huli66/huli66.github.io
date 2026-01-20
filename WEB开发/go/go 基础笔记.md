@@ -22,7 +22,7 @@
  - 类型断言，`t := i.(T)` 断言接口值 i 包含类型 T，如果没有则 panic 恐慌报错
  - `t, ok := i.(T)` 如果存在则 t 保存底层值，ok 为 true，否则 t 为断言类型的零值，ok 为 false
 
-- go
+- goruntime 是由 Go 运行时管理的轻量级线程，主进程执行完时会立即退出，所有 goruntime 也会关闭
 
 ```go
 package main
