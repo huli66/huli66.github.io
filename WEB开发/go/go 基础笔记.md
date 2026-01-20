@@ -22,10 +22,14 @@
  - 类型断言，`t := i.(T)` 断言接口值 i 包含类型 T，如果没有则 panic 恐慌报错
  - `t, ok := i.(T)` 如果存在则 t 保存底层值，ok 为 true，否则 t 为断言类型的零值，ok 为 false
 
-- goruntime 是由 Go 运行时管理的轻量级线程，主进程执行完时会立即退出，所有 goruntime 也会关闭
+- Goroutine 是由 Go 运行时管理的轻量级线程，主进程执行完时会立即退出，所有 goruntime 也会关闭
 - channel 发送和接收数据都是阻塞的，缓冲 channel 则满了发送阻塞，空了接收阻塞
 - `for i := range c` 反复读取 channel 的数据，直到 channel 关闭
 - select 可以等待多个 channel 的消息接收或发送（无缓冲发送也会阻塞），执行先触发的
+- `sync.Mutex` 锁，`Lock` 获取锁，如果锁已经被占用，当前 Goroutine 会阻塞等待，`Unlock` 释放锁，让其他等待的 Goroutine 可以继续获取锁
+	- **互斥性** 同一时刻，只有一个 goroutime 能持有锁
+	- **阻塞性** 如果锁被占用，`Lock()` 会阻塞当前 Goroutine，直到锁被释放继续执行
+	- **临界区** 
 
 ```go
 package main
