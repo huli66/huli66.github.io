@@ -25,7 +25,7 @@
 - goruntime 是由 Go 运行时管理的轻量级线程，主进程执行完时会立即退出，所有 goruntime 也会关闭
 - channel 发送和接收数据都是阻塞的，缓冲 channel 则满了发送阻塞，空了接收阻塞
 - `for i := range c` 反复读取 channel 的数据，直到 channel 关闭
-- 
+- select 可以等待多个 channel 的消息接收或发送（无缓冲发送也会阻塞），执行先触发的
 
 ```go
 package main
