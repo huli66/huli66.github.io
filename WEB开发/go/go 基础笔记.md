@@ -3,7 +3,16 @@ go 程序设计语言
 go 语言基础
 
 - go mod
-	- go mod tidy zi'dong
+	- go help mod
+	- go mod tidy 自动添加或删除，整理项目依赖项
+	- go get example.com/pkg 获取依赖包
+		- @upgrade 更新到最新的 minor 版本(而不是伪版本)
+		- @latest最新 minor semver，可能会降低版本
+		- @patch 最新的 patch 版本
+		- @master 最近一次分支
+		- @具体版本或者 commit hash
+		- **若 go get 的目标 package 为 main，还会同时编译安装二进制到 $GOPATH/bin（go < 1.18)**
+		- ***
 
 - 解引用再访问字段需要用括号，比较麻烦，所以go 语法允许直接写 q.X 无需显示解引用
 - 结构体允许只声明部分字段，未声明的字段会自动赋值为零值
