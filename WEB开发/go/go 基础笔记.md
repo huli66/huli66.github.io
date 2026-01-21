@@ -13,8 +13,11 @@ go 语言基础
 		- @具体版本或者 commit hash
 		- **若 go get 的目标 package 为 main，还会同时编译安装二进制到 $GOPATH/bin（go < 1.18)，后面使用 go install 替代**
 		- **-u 参数：同时更新该依赖中所有参与编译的以来到 minor 版本**
+	- go mod graph 所有依赖项关系
+	- go mod vendor 参与编译的依赖项关系
 - 打包时依赖同一个包的多个版本，选择算法为 Minimal Version Selection 最低能够使用的版本（所有依赖中最高版本）
-	- `// indirect`
+	- `// indirect` 非本项目直接依赖，但是本项目指定该依赖项版本
+	- `+incompatible` 该依赖未使用 go mod 管理，不影响使用，但是打包不区分版本？
 
 - 解引用再访问字段需要用括号，比较麻烦，所以go 语法允许直接写 q.X 无需显示解引用
 - 结构体允许只声明部分字段，未声明的字段会自动赋值为零值
