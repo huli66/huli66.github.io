@@ -231,3 +231,10 @@ services:
 `version` 字段标记规范版本，实现向后兼容，不建议继续使用
 ## k8s
 
+
+## 容器管理
+
+dockge 不会劫持 compose 文件，但是占用内存高，需要两三百 M
+portainer 劫持 compose 文件，占用内存低，老牌工具
+komodo 不会劫持，功能配置稍微复杂
+
