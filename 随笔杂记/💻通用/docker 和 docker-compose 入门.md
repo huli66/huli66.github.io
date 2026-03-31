@@ -238,3 +238,6 @@ dockge 不会劫持 compose 文件，但是占用内存高，需要两三百 M
 portainer 劫持 compose 文件，占用内存低，老牌工具
 komodo 不会劫持，功能配置稍微复杂
 
+	使用 portainer 进行管理，dozzle 用来查看日志，也可以尝试 lazydocker
+	是一共 portainer 控制容器，如果需要管理 compose 则自行命令行处理
+
