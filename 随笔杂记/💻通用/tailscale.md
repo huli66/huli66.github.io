@@ -29,5 +29,12 @@ V2rayN 这种软件如果打开 tun 模式也同样会接管 route 和 dns
 `*/3 * * * * tailscale ping 100.86.28.41 --c 1 >/dev/null 2>&1`
 
 ```sh
+# 查看当前组网中设备和活跃情况
+tailscale status
 
+# 尝试 ping，根据结果判断是 中继模式（via DERP） 还是 P2P 直连(via 直连 ip)
+tailscale ping pi
+
+# 查看是否能够正确路由
+route get ali
 ```
