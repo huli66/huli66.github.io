@@ -15,5 +15,10 @@ V2rayN 这种软件如果打开 tun 模式也同样会接管 route 和 dns
 
 可以手动控制或者通过脚本控制，先启动 tailscale 再启动 V2rayN 即可，但是使用不方便，而我不需要 tailscale 的高级功能，只需要能够连通几台设备即可，所以一次性修改配置永久有效的方案会更加友好
 
-- tailscale GUI 界面关闭 subroute 和 dns 设置
-- `sudo tailscale up --accept-routes=false --accept-dns=false --reset` chogn'q
+- 关闭 tailscale 多余功能
+	- tailscale GUI 界面关闭 subroute 和 dns 设置
+	- `sudo tailscale up --accept-routes=false --accept-dns=false --reset` 重启后台服务
+- V2rayN 接管路由和 DNS，并且跳过 tailscale 所在网段
+	- DNS 通过 SwitchHosts 等软件去配置系统的 host 文件即可
+	- 开启系统代理则在忽略代理文件中加上两个配置 `100.64.0.0/10,*.ts.net`
+	- 开启 tun 模式则在规则集中配置这个网段/域名 direct
